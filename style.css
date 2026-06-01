@@ -1,12 +1,53 @@
+:root {
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --text-main: #333333;
+    --text-muted: #555555;
+    --border-color: rgba(0, 0, 0, 0.05);
+    --shadow-color: rgba(0, 0, 0, 0.04);
+}
+
+body.dark-theme {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --border-color: rgba(255, 255, 255, 0.05);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
 body {
-    background-color: #f0f2f5;
+    background-color: var(--bg-color);
     font-family: 'Poppins', sans-serif;
-    color: #333333; /* Texto padrão mais escuro para leitura clara */
+    color: var(--text-main); /* Texto padrão mais escuro para leitura clara */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Melhorando a legibilidade dos textos secundários */
-.has-text-grey {
-    color: #555555 !important;
+.has-text-grey, body.dark-theme .has-text-grey {
+    color: var(--text-muted) !important;
+}
+
+/* Overrides globais para o Bulma no Tema Escuro */
+body.dark-theme .title, 
+body.dark-theme .subtitle {
+    color: var(--text-main);
+}
+body.dark-theme .box {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-main);
+}
+body.dark-theme .input {
+    background-color: var(--bg-color);
+    border-color: var(--border-color);
+    color: var(--text-main);
+}
+body.dark-theme .input::placeholder {
+    color: var(--text-muted);
+}
+body.dark-theme .navbar-custom {
+    border-bottom: 1px solid var(--border-color);
 }
 
 /* Cor de fundo do Menu Superior baseada na imagem (Vermelho escuro) */
@@ -80,17 +121,17 @@ body {
 .product-card {
     display: flex;
     /* Faz a imagem e os textos ficarem lado a lado */
-    background: white;
+    background: var(--card-bg);
     border-radius: 12px;
     overflow: hidden;
     /* Faz a imagem respeitar a borda arredondada */
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
     /* Borda bem suave */
     margin-bottom: 1rem;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s ease;
     /* Efeito de animação suave */
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 2px 8px var(--shadow-color);
 }
 
 .product-card:hover {
@@ -123,13 +164,13 @@ body {
 /* Estilo dos cards da área de "Destaques" */
 .destaque-card {
     border-radius: 12px;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
     overflow: hidden;
-    background: white;
+    background: var(--card-bg);
     height: 100%;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s ease;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 2px 8px var(--shadow-color);
 }
 
 .destaque-card:hover {
@@ -164,24 +205,25 @@ body {
 
 /* O painel lateral direito (Sacola de compras) */
 .cart-panel {
-    background: white;
+    background: var(--card-bg);
     border-radius: 12px;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
     padding: 1.5rem;
     position: sticky;
     /* Faz a sacola acompanhar a rolagem da página */
     top: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: background-color 0.3s ease;
 }
 
 /* Custom CSS Classes para a nova UI Premium */
 .shadow-sm {
-    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-    border: 1px solid rgba(0,0,0,0.02);
+    box-shadow: 0 2px 10px var(--shadow-color);
+    border: 1px solid var(--border-color);
 }
 
 .search-input:focus {
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
+    box-shadow: 0 4px 15px var(--shadow-color) !important;
     border-color: #8b0000 !important;
 }
 
@@ -199,14 +241,17 @@ body {
 .category-chip {
     font-weight: 500;
     font-size: 0.85rem;
-    background-color: white;
-    border: 1px solid #eee;
-    color: #555;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
     transition: all 0.2s ease;
 }
 .category-chip:hover {
-    background-color: #f5f5f5;
-    border-color: #ddd;
+    background-color: var(--bg-color);
+    border-color: var(--text-muted);
+}
+body.dark-theme .category-chip:hover {
+    background-color: #2a2a2a;
 }
 .category-chip.chip-active {
     background-color: #8b0000;
