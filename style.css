@@ -1,0 +1,216 @@
+body {
+    background-color: #f0f2f5;
+    font-family: 'Inter', sans-serif;
+    color: #333333; /* Texto padrão mais escuro para leitura clara */
+}
+
+/* Melhorando a legibilidade dos textos secundários */
+.has-text-grey {
+    color: #555555 !important;
+}
+
+/* Cor de fundo do Menu Superior baseada na imagem (Vermelho escuro) */
+.navbar-custom {
+    background-color: #8b0000;
+}
+
+.navbar-custom .navbar-item {
+    color: white;
+    /* Texto branco no menu */
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.navbar-custom .navbar-item:hover {
+    background-color: #6b0000;
+    /* Efeito ao passar o mouse */
+    color: white;
+    border-radius: 6px;
+}
+
+/* Item ativo (Início) */
+.navbar-custom .nav-item-active {
+    background-color: white !important;
+    color: #8b0000 !important;
+    border-radius: 6px;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+.navbar-custom .nav-item-active:hover {
+    background-color: #f5f5f5 !important;
+    color: #8b0000 !important;
+}
+
+/* Ajuste para o Bulma não deixar o menu branco no mobile e estragar o vermelho */
+@media screen and (max-width: 1023px) {
+    .navbar-custom .navbar-menu {
+        background-color: #8b0000;
+    }
+}
+
+/* O Banner grande do restaurante */
+.hero-banner {
+    background-color: #333;
+    /* Na versão final, substitua a imagem do placeholder pelo banner real do restaurante */
+    background-image: url('imgs/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    margin-top: 1rem;
+}
+
+/* Foto do perfil (Logo) que fica "flutuando" entre o banner e os textos */
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    /* Bordas levemente quadradas/arredondadas */
+    border: 4px solid white;
+    /* Borda branca para separar do banner */
+    margin-top: -60px;
+    /* Puxa a imagem para cima, invadindo o banner */
+    background-color: black;
+    object-fit: cover;
+}
+
+/* Estilo para a listagem dos produtos (ex: Pastéis e Hambúrgueres) */
+.product-card {
+    display: flex;
+    /* Faz a imagem e os textos ficarem lado a lado */
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    /* Faz a imagem respeitar a borda arredondada */
+    border: 1px solid rgba(0,0,0,0.05);
+    /* Borda bem suave */
+    margin-bottom: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    /* Efeito de animação suave */
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+    /* Levanta o cartão ao passar o mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    /* Cria uma sombra mais forte */
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 1rem;
+    flex-grow: 1;
+    /* Faz a área de texto ocupar o espaço restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-image {
+    width: 140px;
+    object-fit: cover;
+    /* Garante que a imagem não distorça */
+    transition: transform 0.3s ease;
+}
+
+/* Estilo dos cards da área de "Destaques" */
+.destaque-card {
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
+    overflow: hidden;
+    background: white;
+    height: 100%;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.destaque-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.destaque-card:hover img {
+    transform: scale(1.05);
+}
+
+.destaque-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Melhorando o visual da tag dentro do card de destaque */
+.destaque-card .tag.is-warning {
+    background: linear-gradient(135deg, #ff9a44, #fc6076);
+    color: white !important;
+    border: none;
+    box-shadow: 0 2px 4px rgba(252, 96, 118, 0.3);
+}
+.destaque-card .tag.is-info {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: white !important;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 242, 254, 0.3);
+}
+
+/* O painel lateral direito (Sacola de compras) */
+.cart-panel {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 1.5rem;
+    position: sticky;
+    /* Faz a sacola acompanhar a rolagem da página */
+    top: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom CSS Classes para a nova UI Premium */
+.shadow-sm {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.search-input:focus {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
+    border-color: #8b0000 !important;
+}
+
+.categories-scroll {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    gap: 0.5rem;
+    scrollbar-width: none; /* Oculta scrollbar no Firefox */
+}
+.categories-scroll::-webkit-scrollbar {
+    display: none; /* Oculta scrollbar no Chrome/Safari */
+}
+
+.category-chip {
+    font-weight: 500;
+    font-size: 0.85rem;
+    background-color: white;
+    border: 1px solid #eee;
+    color: #555;
+    transition: all 0.2s ease;
+}
+.category-chip:hover {
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+.category-chip.chip-active {
+    background-color: #8b0000;
+    color: white;
+    border-color: #8b0000;
+    box-shadow: 0 4px 10px rgba(139, 0, 0, 0.2);
+}

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costela's Burguer - Interface com Bulma</title>
+    
+    <!-- 1. IMPORTANDO O BULMA CSS -->
+    <!-- O Bulma é um framework CSS que nos dá várias classes prontas para usarmos no HTML, agilizando muito o desenvolvimento. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    
+    <!-- 2. IMPORTANDO ÍCONES E FONTES -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- 3. NOSSO CSS CUSTOMIZADO -->
+    <!-- Aqui colocamos pequenos ajustes visuais que o Bulma não tem por padrão, para ficar com a "cara" do projeto. -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ==============================================
+         1. CABEÇALHO / NAVBAR (Barra no topo)
+         ============================================== -->
+    <nav class="navbar navbar-custom" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <!-- Ícone "hambúrguer" para abrir o menu no celular -->
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            
+            <!-- navbar-menu: Itens que ficam escondidos no celular e visíveis no PC -->
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start is-flex-grow-1 is-justify-content-center">
+                    <a class="navbar-item nav-item-active mr-4">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span>Início</span>
+                    </a>
+                    <a class="navbar-item mr-4">
+                        <span class="icon"><i class="fas fa-tags"></i></span>
+                        <span>Promoções</span>
+                    </a>
+                    <a class="navbar-item mr-4">
+                        <span class="icon"><i class="fas fa-shopping-bag"></i></span>
+                        <span>Pedidos</span>
+                    </a>
+                    <a class="navbar-item">
+                        <span class="icon"><i class="fas fa-user"></i></span>
+                        <span>Entrar/Cadastrar</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==============================================
+         2. CORPO DA PÁGINA (Sessão principal)
+         ============================================== -->
+    <section class="section pt-0">
+        <!-- class="container" do Bulma centraliza o conteúdo na tela e dá as margens certas -->
+        <div class="container">
+            
+            <!-- BANNER E INFORMAÇÕES DA LOJA -->
+            <div class="hero-banner"></div>
+            
+            <div class="is-flex is-align-items-flex-end is-flex-wrap-wrap mb-6">
+                <!-- Imagem do Perfil (Logo Costela's) -->
+                <img src="imgs/logo.png" alt="Logo Costela's Burguer" class="profile-pic ml-5">
+                <div class="ml-4">
+                    <h1 class="title is-3">Costela's Burguer</h1>
+                    <p class="subtitle is-6 has-text-grey mb-0">
+                        <span style="color: #e65100; font-weight: 600;">Apenas agendamento • Abrimos às 17h00</span> • 
+                        <i class="fas fa-map-marker-alt"></i> Palmas - TO • 
+                        <a href="#" class="has-text-grey-dark has-text-weight-bold">Mais informações</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- SISTEMA DE COLUNAS (GRID DO BULMA) -->
+            <!-- A tela é dividida em 12 "pedaços". -->
+            <div class="columns">
+                
+                <!-- ==============================================
+                     COLUNA ESQUERDA (Ocupa 8 de 12 pedaços no PC)
+                     Aqui ficam os produtos e categorias.
+                     ============================================== -->
+                <div class="column is-8">
+                    
+                    <!-- Filtro de Categorias e Barra de Busca -->
+                    <div class="mb-5">
+                        <div class="control has-icons-left mb-4 search-bar-container">
+                            <input class="input is-rounded search-input shadow-sm" type="text" placeholder="Busque por um lanche, pastel...">
+                            <span class="icon is-small is-left has-text-grey">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </div>
+
+                        <!-- Categorias em Chips -->
+                        <div class="categories-scroll">
+                            <button class="button is-rounded category-chip chip-active">Destaques</button>
+                            <button class="button is-rounded category-chip">Pastéis</button>
+                            <button class="button is-rounded category-chip">Frango</button>
+                            <button class="button is-rounded category-chip">Bebidas</button>
+                            <button class="button is-rounded category-chip">Porções</button>
+                        </div>
+                    </div>
+
+                    <!-- SEÇÃO: DESTAQUES -->
+                    <h2 class="title is-5 mt-6 mb-4">Destaques</h2>
+                    
+                    <!-- 'is-multiline' permite que os cards pulem para a próxima linha se não couberem -->
+                    <div class="columns is-mobile is-multiline">
+                        <!-- Item Destaque 1 -->
+                        <div class="column is-half-mobile is-one-third-tablet">
+                            <div class="destaque-card is-flex is-flex-direction-column">
+                                <img src="https://via.placeholder.com/300x200/ffcc00/fff?text=Hamburguer" alt="Hamburguer Destaque">
+                                <div class="p-3 mt-auto">
+                                    <span class="tag is-warning is-light has-text-weight-bold mb-2" style="font-size: 0.7rem;">MAIS PEDIDO</span>
+                                    <h3 class="has-text-weight-bold is-size-6">Hamburguer</h3>
+                                    <p class="has-text-weight-bold mt-1">R$ 25,90</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Item Destaque 2 -->
+                        <div class="column is-half-mobile is-one-third-tablet">
+                            <div class="destaque-card is-flex is-flex-direction-column">
+                                <img src="imgs/x_bacon.jpg" alt="Lanche Destaque">
+                                <div class="p-3 mt-auto">
+                                    <span class="tag is-warning is-light has-text-weight-bold mb-2" style="font-size: 0.7rem;">MAIS PEDIDO</span>
+                                    <h3 class="has-text-weight-bold is-size-6">X-Bacon</h3>
+                                    <p class="has-text-weight-bold mt-1">R$ 28,90</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Item Destaque 3 (Caixa Surpresa) -->
+                        <div class="column is-half-mobile is-one-third-tablet">
+                            <div class="destaque-card has-text-centered is-flex is-flex-direction-column is-justify-content-center" style="background-color: #fcfcfc;">
+                                <div class="my-5">
+                                    <span class="icon is-large has-text-grey-light">
+                                        <i class="fas fa-box-open fa-3x"></i>
+                                    </span>
+                                </div>
+                                <div class="p-3 mt-auto">
+                                    <span class="tag is-info is-light has-text-weight-bold mb-2" style="font-size: 0.7rem;">RECOMENDADO</span>
+                                    <h3 class="has-text-weight-bold is-size-6">Caixa Surpresa</h3>
+                                    <p class="has-text-weight-bold mt-1">R$ 45,90</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEÇÃO: PASTÉIS -->
+                    <h2 class="title is-5 mt-6 mb-4">Pastéis</h2>
+                    
+                    <!-- Lista de Produtos: Pastel 1 -->
+                    <div class="product-card">
+                        <div class="product-info">
+                            <div>
+                                <h3 class="has-text-weight-bold is-size-6 mb-1">Pastel de Carne</h3>
+                                <p class="has-text-grey is-size-7">Delicioso pastel frito na hora, recheado com carne bovina moída e temperada.</p>
+                            </div>
+                            <p class="has-text-weight-bold mt-3">R$ 15,90</p>
+                        </div>
+                        <!-- Imagem do produto no lado direito -->
+                        <img src="imgs/pastel.jpg" alt="Pastel de Carne" class="product-image">
+                    </div>
+
+                    <!-- Lista de Produtos: Pastel 2 -->
+                    <div class="product-card">
+                        <div class="product-info">
+                            <div>
+                                <h3 class="has-text-weight-bold is-size-6 mb-1">Pastel de Carne com Catupiry</h3>
+                            </div>
+                            <p class="has-text-weight-bold mt-3">R$ 19,90</p>
+                        </div>
+                        <img src="imgs/pastel.jpg" alt="Pastel de Carne com Catupiry" class="product-image">
+                    </div>
+
+                    <!-- SEÇÃO: FRANGO -->
+                    <h2 class="title is-5 mt-6 mb-4">Frango</h2>
+                    
+                    <div class="columns is-multiline">
+                        <!-- Aqui usamos colunas para deixar 2 lanches lado a lado -->
+                        <div class="column is-half">
+                            <div class="box" style="height: 100%; border: 1px solid #eaeaea; box-shadow: none;">
+                                <h3 class="has-text-weight-bold is-size-6 mb-1">X-Peito</h3>
+                                <p class="has-text-grey is-size-7 mb-3">Pão, filé de peito, queijo, presunto, milho, batata palha.</p>
+                                <p class="has-text-weight-bold">R$ 20,90</p>
+                            </div>
+                        </div>
+                        <div class="column is-half">
+                            <div class="box" style="height: 100%; border: 1px solid #eaeaea; box-shadow: none;">
+                                <h3 class="has-text-weight-bold is-size-6 mb-1">X-Peito Salada</h3>
+                                <p class="has-text-grey is-size-7 mb-3">Pão, filé de peito, queijo, presunto, milho, batata palha, alface, tomate.</p>
+                                <p class="has-text-weight-bold">R$ 22,90</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ==============================================
+                     COLUNA DIREITA (Ocupa 4 de 12 pedaços no PC)
+                     Aqui fica a Sacola (Carrinho) e avisos.
+                     ============================================== -->
+                <div class="column is-4 mt-5-mobile">
+                    
+                    <!-- Aviso de Pontos de Fidelidade -->
+                    <div class="box" style="border: 1px solid #eaeaea; box-shadow: none;">
+                        <p class="has-text-weight-bold is-size-6 mb-2">
+                            <i class="fas fa-gift has-text-grey mr-2"></i>Troque pontos por recompensas
+                        </p>
+                        <p class="is-size-7 has-text-grey mb-2">A cada <strong>R$ 1,00</strong> em compras você ganha <strong>1 ponto</strong> que pode ser trocado por recompensas.</p>
+                        <p class="is-size-7 has-text-grey">Os novos clientes ganham automaticamente <strong>100 pontos</strong>.</p>
+                    </div>
+
+                    <!-- Painel Fixo da Sacola de Compras -->
+                    <div class="cart-panel">
+                        <!-- Botão de Calcular Taxa -->
+                        <div class="is-flex is-justify-content-space-between is-align-items-center mb-5 pb-4" style="border-bottom: 1px solid #eee; cursor: pointer;">
+                            <span class="has-text-grey is-size-7 has-text-weight-bold">
+                                <i class="fas fa-map-marker-alt mr-2"></i> Calcular taxa e tempo de entrega
+                            </span>
+                            <i class="fas fa-chevron-right has-text-grey-light"></i>
+                        </div>
+                        
+                        <!-- Conteúdo da Sacola Vazia -->
+                        <div class="has-text-centered py-5">
+                            <span class="icon is-large has-text-grey-light mb-3">
+                                <i class="fas fa-shopping-bag fa-3x"></i>
+                            </span>
+                            <p class="has-text-grey is-size-6 mt-2">Sacola vazia</p>
+                        </div>
+
+                        <!-- Botão de Cupom -->
+                        <div class="is-flex is-justify-content-space-between is-align-items-center mt-4 pt-4 mb-5" style="border-top: 1px solid #eee; cursor: pointer;">
+                            <div class="is-flex is-align-items-center">
+                                <i class="fas fa-ticket-alt has-text-grey mr-3"></i>
+                                <div>
+                                    <p class="has-text-weight-bold is-size-7">Tem um cupom?</p>
+                                    <p class="is-size-7 has-text-grey">Clique e insira o código</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right has-text-grey-light"></i>
+                        </div>
+
+                        <!-- Botão de Finalizar (Desativado) -->
+                        <button class="button is-fullwidth is-rounded" style="background-color: #f5f5f5; color: #aaa; border: 1px solid #eee; font-weight: 600; pointer-events: none; height: 3rem;">
+                            Sacola vazia
+                        </button>
+                    </div>
+
+                </div> <!-- Fim da Coluna Direita -->
+
+            </div> <!-- Fim do Sistema de Colunas -->
+
+        </div> <!-- Fim do Container -->
+    </section>
+
+</body>
+</html>
