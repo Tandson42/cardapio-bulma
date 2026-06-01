@@ -58,6 +58,12 @@
                         <span>Entrar/Cadastrar</span>
                     </a>
                 </div>
+                
+                <div class="navbar-end">
+                    <a class="navbar-item" id="theme-toggle" title="Alternar Modo Escuro" style="cursor: pointer;">
+                        <span class="icon"><i class="fas fa-moon" id="theme-icon"></i></span>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -157,7 +163,7 @@
                         <!-- Item Destaque 3 (Caixa Surpresa) -->
                         <div class="column is-half-mobile is-one-third-tablet">
                             <div class="destaque-card has-text-centered is-flex is-flex-direction-column is-justify-content-center"
-                                style="background-color: #fcfcfc;">
+                                style="background-color: var(--card-bg);">
                                 <div class="my-5">
                                     <span class="icon is-large has-text-grey-light">
                                         <i class="fas fa-box-open fa-3x"></i>
@@ -278,7 +284,7 @@
 
                         <!-- Botão de Finalizar (Desativado) -->
                         <button class="button is-fullwidth is-rounded"
-                            style="background-color: #f5f5f5; color: #aaa; border: 1px solid #eee; font-weight: 600; pointer-events: none; height: 3rem;">
+                            style="background-color: var(--bg-color); color: var(--text-muted); border: 1px solid var(--border-color); font-weight: 600; pointer-events: none; height: 3rem;">
                             Sacola vazia
                         </button>
                     </div>
@@ -290,6 +296,8 @@
         </div> <!-- Fim do Container -->
     </section>
 
+    <!-- Script de Tema Escuro -->
+    <script src="script.js"></script>
 </body>
 
 </html>
